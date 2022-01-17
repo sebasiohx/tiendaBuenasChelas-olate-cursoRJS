@@ -1,3 +1,5 @@
+import CartWidget from "../CartWidget/CartWidget";
+
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -32,7 +34,7 @@ const Navbar = () => {
           <input className="form-control mr-sm-2" type="search" placeholder="buscar marca" aria-label="Search"/>
           <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
         </form>
-        <button className="btn btn-outline-secondary ml-2"><i className="fas fa-shopping-cart"></i><span className="cart-counter">99</span></button>
+        <CartWidget />
       </div>
     </nav>
   );
