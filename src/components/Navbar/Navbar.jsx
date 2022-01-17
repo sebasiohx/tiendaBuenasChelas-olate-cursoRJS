@@ -34,6 +34,7 @@ const Navbar = () => {
           <input className="form-control mr-sm-2" type="search" placeholder="buscar marca" aria-label="Search"/>
           <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
         </form>
+        
         <CartWidget />
       </div>
     </nav>
