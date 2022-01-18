@@ -1,0 +1,25 @@
+.itemCount-cart .pagination {
+  width: 148px;
+}
+
+.itemCount-cart .page-item {
+  flex-basis: 33%;
+  text-align: center;
+  font-size: 18px;
+}
+
+.itemCount-cart .page-item:first-child,
+.itemCount-cart .page-item:last-child{
+  cursor: pointer;
+}
+
+.itemCount-cart .count-number{
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  /* color: #007bff; */
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+}
