@@ -1,7 +1,7 @@
 import './ItemCount.css';
 import { useState } from 'react';
 
-const ItemCount = ({stock, initial, onAdd}) => {
+const ItemCount = ({stock, initial}) => {
   const [counter, setCounter]  = useState(parseInt(initial));
 
   let addCounter = ()=> {
@@ -21,6 +21,13 @@ const ItemCount = ({stock, initial, onAdd}) => {
       setCounter(parseInt(initial));
     } else {
       setCounter(counter-1);
+    }
+  }
+
+  let onAdd = ()=>{
+    if(stock > 0){
+      console.log(counter);
+      return counter;
     }
   }
 
