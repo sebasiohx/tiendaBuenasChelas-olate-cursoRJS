@@ -32,16 +32,13 @@ const ItemCount = ({stock, initial}) => {
   }
 
   return (
-    <div className="card">
-      <div className="card-body">
-        {/*  */}
         <div className="itemCount-cart">
-          <ul className="pagination">
+          <ul className="pagination mb-1">
             <li className="page-item">
               <a className={'page-link '+(counter<=initial? 'disabled': '')} onClick={restCounter}>-</a>
             </li>
             <li className="page-item">
-              <p className="count-number">{counter}</p>
+              <p className="count-number mb-0">{counter}</p>
               </li>
             <li className="page-item">
               <a className={'page-link '+(counter>=stock? 'disabled': '')} onClick={addCounter}>+</a>
@@ -49,9 +46,6 @@ const ItemCount = ({stock, initial}) => {
           </ul>
           <button className={"btn btn-primary "+(stock<1? 'disabled': '')} onClick={onAdd}>Agregar al carrito</button>
         </div>
-        {/*  */}
-      </div>
-    </div>
   );  
 }
 

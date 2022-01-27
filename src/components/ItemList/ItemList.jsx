@@ -1,10 +1,13 @@
-import { useState } from "react";
 import Item from "../Item/Item";
 
 const ItemList = ({ items })=>{
   return (
     <>
-      {items.map((item)=> <Item key={item.id} item={item} />)}
+      {items.map((item)=>
+        <div className="col-lg-3">
+          <Item key={item.id} item={item} />
+        </div>
+      )}
     </>
   );
 }
