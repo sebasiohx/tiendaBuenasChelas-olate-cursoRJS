@@ -1,26 +1,26 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import ItemDetail from "../ItemDetail/ItemDetail";
-//import ItemDetail from "../ItemDetail/ItemDetail";
-
-const URL = 'http://localhost:3001/products';
-const getProductos = (itemId)=> {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => resolve(fetch(`${URL}/${itemId}`)), 2000);
-  });
-}
 
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const { id } = useParams();
+  const URL = `http://localhost:3001/products/${id}`;
+  const getProductos = () => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => resolve(fetch(URL)), 2000);
+    });
+  }
 
   useEffect(() => {
     setIsLoading(true);
 
-    getProductos(3)
-        .then((response) => response.json())
-        .then((json) => setProduct(json))
-        .catch((error) => console.error(error))
-        .finally(()=> setIsLoading(false));
+    getProductos()
+      .then((response) => response.json())
+      .then((data) => setProduct(data))
+      .catch((error) => console.error(error))
+      .finally(() => setIsLoading(false));
   }, []);
 
   return (

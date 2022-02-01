@@ -1,23 +1,36 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
-
-const URL = 'http://localhost:3001/products';
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const { categoryId } = useParams();
+  const URL = 'http://localhost:3001/products';
+
+  console.log(categoryId);
 
   useEffect(() => {
     setIsLoading(true);
 
-    setTimeout(()=> {
-      fetch(URL)
-        .then((response) => response.json())
-        .then((json) => setProducts(json))
-        .catch((error) => console.error(error))
-        .finally(()=> setIsLoading(false));
-    }, 2000)
-  }, []);
+    if (categoryId) {
+      setTimeout(() => {
+        fetch(URL)
+          .then((response) => response.json())
+          .then((data) => setProducts(data.filter((item) => item.category == categoryId)))
+          .catch((error) => console.error(error))
+          .finally(() => setIsLoading(false));
+      }, 2000);
+    } else {
+      setTimeout(() => {
+        fetch(URL)
+          .then((response) => response.json())
+          .then((data) => setProducts(data))
+          .catch((error) => console.error(error))
+          .finally(() => setIsLoading(false));
+      }, 2000);
+    }
+  }, [categoryId]);
 
   return (
     <div className="row">
