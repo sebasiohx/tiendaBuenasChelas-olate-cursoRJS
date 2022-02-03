@@ -12,24 +12,16 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     setIsLoading(true);
-
-    if (categoryId) {
       setTimeout(() => {
         fetch(URL)
           .then((response) => response.json())
-          .then((data) => setProducts(data.filter((item) => item.category == categoryId)))
+          .then((data) => { 
+            if (categoryId){
+              setProducts(data.filter((item) => item.category == categoryId))
+            } else { setProducts(data)}})
           .catch((error) => console.error(error))
           .finally(() => setIsLoading(false));
       }, 2000);
-    } else {
-      setTimeout(() => {
-        fetch(URL)
-          .then((response) => response.json())
-          .then((data) => setProducts(data))
-          .catch((error) => console.error(error))
-          .finally(() => setIsLoading(false));
-      }, 2000);
-    }
   }, [categoryId]);
 
   return (

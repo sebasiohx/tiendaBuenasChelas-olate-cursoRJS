@@ -24,7 +24,6 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     }
   }
 
-
   return (
     <div className="itemCount-cart">
       <ul className="pagination mb-1">
