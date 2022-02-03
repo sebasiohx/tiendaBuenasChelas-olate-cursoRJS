@@ -6,7 +6,8 @@
       "description": "Dos Lúpulos finamente seleccionados hacen de la receta de Royal Guard algo único. Uno para darle su característico aroma y el otro para que su sabor tenga el amargor justo.",
       "price": 17900,
       "pictureUrl": "https://www.labarra.cl/2870-medium_default/royal-guard.jpg",
-      "category": "nacional"
+      "category": "nacional",
+      "stock":9
     },
     {
       "id": 2,
@@ -14,7 +15,8 @@
       "description": "Cristal es una cerveza lager refrescante y de cuerpo balanceado que representa con orgullo la tradición cervecera chilena desde 1850.",
       "price": 8590,
       "pictureUrl": "https://www.labarra.cl/2612-home_default/cristal.jpg",
-      "category": "nacional"
+      "category": "nacional",
+      "stock":18
     },
     {
       "id": 3,
@@ -22,7 +24,8 @@
       "description": "Su cuerpo redondo, color dorado brillante, sabor intensamente refrescante y 5° de alcohol, hacen de esta nueva variedad una cerveza con carácter y que al mismo tiempo es muy fácil de tomar.",
       "price": 9900,
       "pictureUrl": "https://www.labarra.cl/3354-home_default/escudo-silver.jpg",
-      "category": "importada"
+      "category": "importada",
+      "stock":4
     },
     {
       "id": 4,
@@ -30,7 +33,8 @@
       "description": "Cerveza de estilo clásico y color dorado. En nariz presenta aromas a malta y pan horneado. En boca se muestra fresca pero con amplitud, 100% malta",
       "price": 12300,
       "pictureUrl": "https://www.labarra.cl/3200-home_default/imperial-lager.jpg",
-      "category": "importada"
+      "category": "importada",
+      "stock":3
     }
   ]
 }
