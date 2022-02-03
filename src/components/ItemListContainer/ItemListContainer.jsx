@@ -8,8 +8,6 @@ const ItemListContainer = () => {
   const { categoryId } = useParams();
   const URL = 'http://localhost:3001/products';
 
-  console.log(categoryId);
-
   useEffect(() => {
     setIsLoading(true);
       setTimeout(() => {
