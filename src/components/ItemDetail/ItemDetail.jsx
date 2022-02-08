@@ -1,15 +1,30 @@
 import { useState, useEffect } from "react/cjs/react.development";
 import ItemCount from "../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
 const ItemDetail = ({ item })=>{
   const [itemsCountToCart, setItemsCountToCart] = useState(0);
+  const {addItem, isInCart, addQuantity} = useContext(CartContext); //Consumer
 
-  let onAdd = (quantityToAdd)=>{
+  const onAdd = (quantityToAdd)=>{
     if(item.stock > 0){
       setItemsCountToCart(quantityToAdd);
     }
-  }
+
+    if(isInCart(item.id)){
+      //si existe, solo le suma la cantidad al item
+      addQuantity(item.id, quantityToAdd);
+    } else {
+      //si no existe, crea un item nuevo
+      addItem({
+        id: item.id,
+        name: item.title,
+        price: item.price
+      }, quantityToAdd);
+    }
+  };
 
   return (
     <div className="jumbotron">
