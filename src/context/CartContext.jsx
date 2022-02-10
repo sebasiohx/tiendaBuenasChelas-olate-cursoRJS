@@ -4,33 +4,51 @@ import { createContext, useState } from "react";
 export const CartContext = createContext([]);
 
 //Custom provider
-export const CartProvider = ({children}) =>{
+export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  const isInCart = (id)=>{
-    if(cart.find((product)=> product.item.id == id)){
+  const isInCart = (id) => {
+    if (cart.find((product) => product.item.id == id)) {
       return true;
-    } else{
+    } else {
       return false;
     }
   };
 
-  const addItem = (item, quantity)=>{
-    let newItem = {item, quantity};
-    setCart((cart)=>[...cart, newItem]);
+  const addItem = (item, quantity) => {
+    if (isInCart(item.id)) {
+      console.log("Ya existe");
+      addQuantity(item.id, quantity);
+    } else {
+      let newItem = { item, quantity };
+      setCart((cart) => [...cart, newItem]);
+      console.log("No existe");
+    }
   };
 
-  const addQuantity = (id, quantity)=>{
-    let item = cart.find((product)=> product.item.id == id);
+  const removeItem = (id) => {
+    if (isInCart(id)) {
+      let item = cart.find((product) => product.item.id == id);
+      let indexItemCart = cart.indexOf(item);
+      let pseudoCart = cart;
+      pseudoCart.splice(indexItemCart, 1);
+      setCart([...pseudoCart]);
+    }
+  };
+
+  const addQuantity = (id, quantity) => {
+    let item = cart.find((product) => product.item.id == id);
     item.quantity += quantity;
     let indexItemCart = cart.indexOf(item);
-    setCart((cart)=>cart[indexItemCart] = item);
+    let pseudoCart = cart;
+    pseudoCart[indexItemCart] = item;
+    setCart([...pseudoCart]);
   }
 
-  const clearCart = ()=> setCart([]);
+  const clearCart = () => setCart([]);
 
-  return(
-    <CartContext.Provider value={{cart, addItem, isInCart, addQuantity}}>
+  return (
+    <CartContext.Provider value={{ cart, addItem, removeItem, isInCart, addQuantity }}>
       {children}
     </CartContext.Provider>
   );
