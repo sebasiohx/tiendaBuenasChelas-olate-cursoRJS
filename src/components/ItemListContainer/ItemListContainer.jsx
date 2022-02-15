@@ -1,25 +1,33 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
+import { getFirestore } from "../../firebase";
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const { categoryId } = useParams();
-  const URL = 'http://localhost:3001/products';
 
   useEffect(() => {
-    setIsLoading(true);
-      setTimeout(() => {
-        fetch(URL)
-          .then((response) => response.json())
-          .then((data) => { 
-            if (categoryId){
-              setProducts(data.filter((item) => item.category == categoryId))
-            } else { setProducts(data)}})
-          .catch((error) => console.error(error))
-          .finally(() => setIsLoading(false));
-      }, 2000);
+    const db = getFirestore();
+    let productsCollection;
+    if(categoryId){
+      productsCollection = db.collection("cervezas").where("category", "==", categoryId);
+    } else {
+      productsCollection = db.collection("cervezas");
+    }
+
+    //Obetener datos mediante 'async' y 'await'
+    const getDataFromFirestore = async ()=> {
+      const response = await productsCollection.get();
+
+      if(response.empty){
+        console.log("No hay productos");
+      }
+      setProducts(response.docs.map((doc)=> ({...doc.data(), id: doc.id})));
+    };
+
+    getDataFromFirestore();
   }, [categoryId]);
 
   return (
