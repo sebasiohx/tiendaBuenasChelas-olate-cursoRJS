@@ -11,7 +11,7 @@ const ItemDetailContainer = () => {
   useEffect(() => {
     setIsLoading(true);
     const db = getFirestore();
-    const productsCollection = db.collection("cervezas");
+    const productsCollection = db.collection("beers");
     const selectedProduct = productsCollection.doc(id);
 
     //Obetener datos mediante 'then'

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import ItemList from "../ItemList/ItemList";
 import { getFirestore } from "../../firebase";
+import ItemList from "../ItemList/ItemList";
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
@@ -12,9 +12,9 @@ const ItemListContainer = () => {
     const db = getFirestore();
     let productsCollection;
     if(categoryId){
-      productsCollection = db.collection("cervezas").where("category", "==", categoryId);
+      productsCollection = db.collection("beers").where("category", "==", categoryId);
     } else {
-      productsCollection = db.collection("cervezas");
+      productsCollection = db.collection("beers");
     }
 
     //Obetener datos mediante 'async' y 'await'

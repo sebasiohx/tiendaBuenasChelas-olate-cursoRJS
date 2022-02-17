@@ -17,12 +17,10 @@ export const CartProvider = ({ children }) => {
 
   const addItem = (item, quantity) => {
     if (isInCart(item.id)) {
-      console.log("Ya existe");
       addQuantity(item.id, quantity);
     } else {
       let newItem = { item, quantity };
       setCart((cart) => [...cart, newItem]);
-      console.log("No existe");
     }
   };
 
