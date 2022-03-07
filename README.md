@@ -38,9 +38,8 @@ Empaqueta correctamente React en modo de producción y optimiza la compilación 
 ## Recursos externos
 
 Este Proyecto ocupa los siguientes recursos/herramientas para funcionar:
-### [React Router](https://reactrouter.com/) 
-Es una librería de `npm` para generar un sistema eficiente de rutas del lado del navegador. En éste proyecto se ocupa la versión *6.2.1*
+### [React Router](https://reactrouter.com/)  *v6.2.1*
+Es una librería de `npm` para generar un sistema eficiente de rutas del lado del navegador.
 
-###  Firestore de [Firebase](https://firebase.google.com/)
+###  Firestore de [Firebase](https://firebase.google.com/) *v8.10*
 Firebase es una plataforma para el desarrollo de aplicaciones. En este caso ocupamos una de sus herramientas llamada **Firestore** para generar una base de datos no relacional (NoSQL) donde almacenar los datos de los productos.
-En este proyecto se ocupa la versión *8.10*
