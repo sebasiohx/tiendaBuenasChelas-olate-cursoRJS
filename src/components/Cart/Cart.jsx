@@ -5,7 +5,7 @@ import { getFirestore } from "../../firebase";
 import CartItem from "../CartItem/CartItem";
 
 const Cart = () => {
-  const { cart } = useContext(CartContext);
+  const { cart, clearCart } = useContext(CartContext);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   let navigate = useNavigate();
@@ -36,6 +36,7 @@ const Cart = () => {
     const db = getFirestore();
     const ordersCollection = db.collection("orders");
     const response = await ordersCollection.add(newOrder);
+    clearCart();
     navigate(`/thanks/${response.id}`);
   };
 
@@ -68,9 +69,6 @@ const Cart = () => {
 
           <div className="col-12">
             <h2><strong>Total:</strong> {`$${getTotal(cart)}`}</h2>
-            <br />
-            <button className="btn btn-outline-primary mt-2 mr-3" onClick={() => navigate("/")}>Seguir Comprando</button>
-            <button className="btn btn-primary mt-2">Ir a pagar</button>
           </div>
         </div>
         <div className="row pb-5">
@@ -102,7 +100,10 @@ const Cart = () => {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
               />
-              <input type="submit" value="Finalizar compra" className="btn btn-primary mt-2" />
+              <div>
+                <button className="btn btn-outline-primary mt-4 mr-3" onClick={() => navigate("/")}>Seguir Comprando</button>
+                <input type="submit" value="Finalizar compra" className="btn btn-primary mt-4" />
+              </div>
             </form>
           </div>
         </div>

@@ -9,6 +9,7 @@ const ItemListContainer = () => {
   const { categoryId } = useParams();
 
   useEffect(() => {
+    setIsLoading(true);
     const db = getFirestore();
     let productsCollection;
     if(categoryId){
@@ -25,6 +26,7 @@ const ItemListContainer = () => {
         console.log("No hay productos");
       }
       setProducts(response.docs.map((doc)=> ({...doc.data(), id: doc.id})));
+      setIsLoading(false);
     };
 
     getDataFromFirestore();
