@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# Tienda Buenas Chelas
+Este es un proyecto de tienda virtual (e-comerse) para la tarea final del curso de React JS en [Codehouse](https://www.coderhouse.cl/).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Consiste en una tienda virtual de venta de cervezas nacionales e importadas.
 
-## Available Scripts
+## Getting Start
+Para comenzar a usar el proyecto tienes 2 opciones: 
+### 1. Clonar el proyecto
+Debes abrir una _terminal_ con dirección al directorio que deseas utilizar, una vez ahí puedes ejecutar los siguientes comandos:
 
-In the project directory, you can run:
+###  `git init`
+para crear la carpeta .git en el directorio
 
-### `npm start`
+###  `git clone`
+junto con la URL `https://github.com/SebaZauberer/tiendaBuenasChelas-olate-cursoRJS.git` para crear una copia del proyecto
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 2. Descargar el proyecto
+También puedes descargar una copia del proyecto en las opciones del repositorio ("Download ZIP") y abrir directamente una *terminal* en la capeta descargada.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+-------------------------------------------------------------------------------
 
-### `npm test`
+Una vez que ya tienes una versión en tu computador local, puedes ejecutar los siguientes scripts en la terminal para empezar:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+###  `npm install`
+para instalar todos los paquetes necesarios para el funcionamiento del proyecto.
 
-### `npm run build`
+###  `npm start`
+Ejecuta la aplicación en el modo de desarrollo.
+Abre [http://localhost:3000](http://localhost:3000) para verlo en tu navegador.
+La página se volverá a cargar cuando realices cambios.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+###  `npm run build`
+Construye la aplicación para producción en la carpeta `build`.\
+Empaqueta correctamente React en modo de producción y optimiza la compilación para obtener el mejor rendimiento.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+¡Tu aplicación estará lista para ser implementada!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Recursos externos
 
-### `npm run eject`
+Este Proyecto ocupa los siguientes recursos/herramientas para funcionar:
+### [React Router](https://reactrouter.com/) 
+Es una librería de `npm` para generar un sistema eficiente de rutas del lado del navegador. En éste proyecto se ocupa la versión *6.2.1*
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+###  Firestore de [Firebase](https://firebase.google.com/)
+Firebase es una plataforma para el desarrollo de aplicaciones. En este caso ocupamos una de sus herramientas llamada **Firestore** para generar una base de datos no relacional (NoSQL) donde almacenar los datos de los productos.
+En este proyecto se ocupa la versión *8.10*
