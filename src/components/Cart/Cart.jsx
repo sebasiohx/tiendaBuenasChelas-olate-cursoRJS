@@ -18,6 +18,17 @@ const Cart = () => {
     return total;
   };
 
+  const setStock = () => {
+    const db = getFirestore();
+    const beersCollection = db.collection("beers");
+    cart.forEach((element) => {
+      let selectedProduct = beersCollection.doc(element.item.id);
+      selectedProduct.get().then((response) => {
+        selectedProduct.set({stock: (response.data().stock - element.quantity)}, { merge: true });
+      })
+    });
+  };
+
   const handleSubmit = async (evt) => {
     evt.preventDefault();
 
@@ -36,6 +47,7 @@ const Cart = () => {
     const db = getFirestore();
     const ordersCollection = db.collection("orders");
     const response = await ordersCollection.add(newOrder);
+    setStock();
     clearCart();
     navigate(`/thanks/${response.id}`);
   };
@@ -59,9 +71,9 @@ const Cart = () => {
             <h1>Carrito de compras</h1>
           </div>
 
-          {cart.map((product) => {
+          {cart.map((product, index) => {
             return (
-              <div className="col-4 my-3">
+              <div key={index} className="col-4 my-3">
                 <CartItem item={product} />
               </div>
             );
