@@ -6,7 +6,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import Navbar from './components/Navbar/Navbar';
 import FinalMessage from "./Pages/FinalMessage";
 import { CartProvider } from "./context/CartContext";
-//import { getFirestore } from "./firebase";
+import { getFirestore } from "./firebase";
 
 function App() {
   /* const PRODUCTS= [

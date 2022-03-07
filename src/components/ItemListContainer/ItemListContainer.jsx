@@ -15,7 +15,7 @@ const ItemListContainer = () => {
     if(categoryId){
       productsCollection = db.collection("beers").where("category", "==", categoryId);
     } else {
-      productsCollection = db.collection("beers");
+      productsCollection = db.collection("beers").orderBy("category", "desc")
     }
 
     //Obetener datos mediante 'async' y 'await'
